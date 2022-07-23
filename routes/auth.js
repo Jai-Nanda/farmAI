@@ -52,15 +52,11 @@ router.post('/register', (req, res) => {
     supabase.auth.signUp({
         email: req.body.email,
         password: req.body.pass
-    }, {
-        data: {
-            admin: req.body.admin
-        }
-    })
+    }, )
     .then(data => {
         supabase.from('user').insert([{
             email: req.body.email,
-            Admin: req.body.admin
+            password: req.body.pass
         }])
         .then(data => res.json({data: data}))
     })
