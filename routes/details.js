@@ -31,7 +31,7 @@ router.get('/employee', (req, res) => {
 router.post('/user', (req, res) => {
     supabase.from('employees').select().match({email: req.body.email})
     .then(data => {
-        res.json(data.data[0])
+        // res.json(data.data[0])
     })
 })
 
