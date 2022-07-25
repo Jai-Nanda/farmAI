@@ -53,12 +53,12 @@ router.post('/register', (req, res) => {
         email: req.body.email,
         password: req.body.pass
     }, )
-    .then(data => {
+    .then(data => { 
         supabase.from('user').insert([{
             email: req.body.email,
             password: req.body.pass
         }])
-        .then(data => res.json({data: data}))
+        res.json(data);
     })
 })
 
